@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constancio Corsiga — Graphics Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --ink:#1a1a1a;
+  --paper:#f7f5f1;
+  --paper-dim:#ece8e0;
+  --poster-red:#c8442a;
+  --poster-green:#2b5c4d;
+  --gold:#c9a227;
+  --line: rgba(26,26,26,0.14);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Archivo', sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+::selection{ background:var(--poster-red); color:var(--paper); }
+
+a{ color:inherit; text-decoration:none; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+/* ============ utility ============ */
+.wrap{ max-width:1200px; margin:0 auto; padding:0 32px; }
+.eyebrow{
+  font-family:'Space Mono', monospace;
+  font-size:12px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--poster-red);
+}
+.display{
+  font-family:'Anton', sans-serif;
+  text-transform:uppercase;
+  line-height:0.92;
+  letter-spacing:0.01em;
+}
+
+/* ============ nav ============ */
+.site-nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 32px;
+  background:rgba(247,245,241,0.88);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.site-nav .mark{
+  font-family:'Space Mono', monospace;
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:0.04em;
+}
+.site-nav .mark span{ color:var(--poster-red); }
+.nav-links{ display:flex; gap:28px; font-size:13px; letter-spacing:0.04em; text-transform:uppercase; font-family:'Space Mono', monospace;}
+.nav-links a{ position:relative; padding-bottom:4px; }
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--poster-red);
+  transition:width .25s ease;
+}
+.nav-links a:hover::after{ width:100%; }
+.nav-links a:focus-visible, a:focus-visible{ outline:2px solid var(--poster-red); outline-offset:3px; }
+.nav-cta{
+  font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.05em; text-transform:uppercase;
+  border:1px solid var(--ink); padding:9px 16px;
+  transition:background .2s ease, color .2s ease;
+}
+.nav-cta:hover{ background:var(--ink); color:var(--paper); }
+@media (max-width:760px){ .nav-links{ display:none; } }
+
+/* ============ hero — billing block ============ */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:140px 0 80px;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(200,68,42,0.10), transparent 45%),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, var(--line) 40px);
+}
+.hero .wrap{ position:relative; }
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.3fr 0.7fr;
+  gap:56px;
+  align-items:center;
+}
+@media (max-width:900px){
+  .hero-grid{ grid-template-columns:1fr; gap:48px; }
+  .hero-photo{ order:-1; max-width:260px; }
+}
+
+.hero-photo-frame{
+  position:relative;
+  aspect-ratio:3/4;
+  border:1px solid var(--ink);
+  background:var(--paper-dim);
+}
+.hero-photo-frame::before,
+.hero-photo-frame::after,
+.hero-photo-corner-tl,
+.hero-photo-corner-br{
+  content:''; position:absolute; width:16px; height:16px;
+  border:1.5px solid var(--poster-red);
+}
+.hero-photo-frame::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+.hero-photo-frame::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
+
+.hero-photo-inner{
+  position:absolute; inset:14px;
+  border:1px dashed var(--line);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:10px; text-align:center; padding:18px;
+  background:
+    linear-gradient(135deg, transparent 48%, var(--line) 49%, var(--line) 51%, transparent 52%);
+}
+.hero-photo-icon{
+  width:46px; height:46px; border-radius:50%;
+  border:1.5px solid #9a9388;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Anton', sans-serif; font-size:18px; color:#9a9388;
+}
+.hero-photo-inner p{
+  font-family:'Space Mono', monospace; font-size:10.5px; letter-spacing:0.06em;
+  color:#9a9388; line-height:1.6; max-width:160px;
+}
+.hero-photo-caption{
+  margin-top:14px; display:flex; justify-content:space-between;
+  font-family:'Space Mono', monospace; font-size:10.5px; letter-spacing:0.08em;
+  text-transform:uppercase; color:#6b6b6b;
+}
+.hero-photo-caption span:last-child{ color:var(--poster-red); }
+
+.hero-tag{
+  font-family:'Space Mono', monospace;
+  font-size:13px; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--poster-green);
+  margin-bottom:18px;
+  display:flex; align-items:center; gap:10px;
+}
+.hero-tag::before{ content:''; width:28px; height:1px; background:var(--poster-green); }
+
+.hero-title{
+  /* font-size:clamp(48px, 8.5vw, 130px); */
+  font-size:clamp(48px, 8.5vw, 115px);
+  margin:0 0 18px -4px;
+  position:relative;
+} 
+.hero-title .lastname{ color:var(--poster-red); }
+
+.hero-sub{
+  font-family:'Archivo', sans-serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(18px, 2.4vw, 26px);
+  max-width:560px;
+  border-left:3px solid var(--gold);
+  padding-left:18px;
+  margin-bottom:46px;
+  color:#3a3a3a;
+}
+
+.billing{
+  display:flex; flex-wrap:wrap; gap:34px 48px;
+  font-family:'Space Mono', monospace;
+  font-size:12.5px;
+  letter-spacing:0.04em;
+  border-top:1px solid var(--line);
+  padding-top:26px;
+}
+.billing dt{ color:var(--poster-red); text-transform:uppercase; font-size:11px; margin-bottom:6px; letter-spacing:0.12em;}
+.billing dd{ color:var(--ink); max-width:220px; line-height:1.5; }
+
+.hero-scroll{
+  position:absolute; right:32px; bottom:24px;
+  font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
+  display:flex; align-items:center; gap:10px;
+  color:#6b6b6b;
+}
+.hero-scroll .bar{ width:1px; height:34px; background:#6b6b6b; position:relative; overflow:hidden; }
+.hero-scroll .bar::after{
+  content:''; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--poster-red);
+  animation:scrollbar 1.8s ease-in-out infinite;
+}
+@keyframes scrollbar{ 50%{ top:100%; } 100%{ top:100%; } }
+@media (max-width:760px){ .hero-scroll{ display:none; } }
+
+
+/* ============ section shell ============ */
+section{ padding:120px 0; position:relative; }
+.section-head{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  gap:24px; margin-bottom:64px; flex-wrap:wrap;
+  border-bottom:1px solid var(--line);
+  padding-bottom:28px;
+}
+.section-head h2{
+  font-size:clamp(38px, 5.5vw, 64px);
+}
+.section-head .count{
+  font-family:'Space Mono', monospace; font-size:13px; color:#6b6b6b;
+  letter-spacing:0.06em; padding-bottom:10px;
+}
+
+/* ============ about ============ */
+.about{ background:var(--paper-dim); }
+.about-grid{
+  display:grid; grid-template-columns:1.1fr 1fr; gap:80px; align-items:start;
+}
+@media (max-width:860px){ .about-grid{ grid-template-columns:1fr; gap:48px; } }
+.about-lede{
+  font-size:clamp(22px, 3vw, 32px);
+  line-height:1.35;
+  font-weight:500;
+}
+.about-lede em{ font-style:italic; color:var(--poster-red); font-weight:400; }
+.about-body p{ margin-top:22px; line-height:1.7; color:#3f3f3f; font-size:15.5px; }
+
+.fact-list{ list-style:none; margin-top:36px; }
+.fact-list li{
+  display:flex; gap:18px; padding:16px 0; border-top:1px solid var(--line);
+  font-size:14px;
+}
+.fact-list li:first-child{ border-top:none; }
+.fact-list .num{ font-family:'Space Mono', monospace; color:var(--poster-red); font-size:13px; min-width:28px; }
+
+.toolbelt{ margin-top:40px; }
+.toolbelt .eyebrow{ margin-bottom:14px; }
+.tool-tags{ display:flex; flex-wrap:wrap; gap:10px; }
+.tool-tags span{
+  font-family:'Space Mono', monospace; font-size:12px;
+  border:1px solid var(--line); padding:7px 13px;
+  background:var(--paper);
+}
+
+/* ============ work / categories ============ */
+.work{ background:var(--paper); }
+.category{
+  border-top:2px solid var(--ink);
+  padding:56px 0;
+}
+.category:last-child{ border-bottom:2px solid var(--ink); }
+.cat-head{
+  display:flex; justify-content:space-between; align-items:baseline; gap:20px; flex-wrap:wrap;
+  margin-bottom:36px;
+}
+.cat-head h3{ font-size:clamp(28px, 4vw, 42px); }
+.cat-head .cat-medium{
+  font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#6b6b6b;
+}
+.cat-blurb{ max-width:560px; color:#3f3f3f; line-height:1.6; font-size:14.5px; margin-bottom:36px; }
+
+.piece-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:20px;
+}
+.piece{
+  border:1px solid var(--line);
+  background:var(--paper-dim);
+  aspect-ratio:3/4;
+  display:flex; flex-direction:column; justify-content:space-between;
+  padding:18px;
+  position:relative;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
+  cursor:pointer;
+}
+.piece:hover, .piece:focus-visible{
+  transform:translateY(-6px) rotate(-0.4deg);
+  box-shadow:10px 14px 0 rgba(26,26,26,0.08);
+  border-color:var(--ink);
+  outline:none;
+}
+.piece-frame{
+  flex:1; margin-top:8px;
+  border:1px dashed var(--line);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Space Mono', monospace; font-size:11px; color:#9a9388;
+  text-align:center; padding:14px; letter-spacing:0.04em;
+  background:
+    linear-gradient(135deg, transparent 48%, var(--line) 49%, var(--line) 51%, transparent 52%);
+}
+.piece-tag{
+  font-family:'Space Mono', monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--poster-red);
+}
+.piece-title{ font-size:16px; font-weight:600; margin-top:6px; line-height:1.25; }
+.piece-tool{
+  font-family:'Space Mono', monospace; font-size:10.5px; color:#6b6b6b; margin-top:10px;
+  display:flex; align-items:center; gap:8px;
+}
+.piece-tool::before{ content:'—'; color:var(--gold); }
+
+/* ============ process band ============ */
+.process{ background:var(--ink); color:var(--paper); }
+.process .section-head{ border-color:rgba(247,245,241,0.18); }
+.process .section-head h2{ color:var(--paper); }
+.process .eyebrow{ color:var(--gold); }
+.steps{
+  display:grid; grid-template-columns:repeat(5, 1fr); gap:0;
+  border-top:1px solid rgba(247,245,241,0.18);
+}
+.step{
+  padding:34px 28px; border-right:1px solid rgba(247,245,241,0.18);
+}
+.step:last-child{ border-right:none; }
+.step .step-label{ font-family:'Space Mono', monospace; font-size:12px; color:var(--gold); letter-spacing:0.1em; margin-bottom:14px; }
+.step h4{ font-size:19px; margin-bottom:10px; font-weight:600; }
+.step p{ font-size:13.5px; color:rgba(247,245,241,0.7); line-height:1.6; }
+@media (max-width:1024px){
+  .step{ padding:30px 20px; }
+  .step h4{ font-size:17px; }
+}
+@media (max-width:860px){
+  .steps{ grid-template-columns:1fr; }
+  .step{ border-right:none; border-bottom:1px solid rgba(247,245,241,0.18); }
+}
+
+/* ============ testimonial strip ============ */
+.testimony{ background:var(--paper-dim); }
+.testimony blockquote{
+  font-family:'Archivo', sans-serif; font-style:italic;
+  font-size:clamp(22px, 3.4vw, 36px); line-height:1.45;
+  max-width:880px; color:var(--ink); position:relative; padding-left:40px;
+}
+.testimony blockquote::before{
+  content:'“'; font-family:'Anton', sans-serif; font-size:90px; color:var(--poster-red);
+  position:absolute; left:-12px; top:-30px; line-height:1; font-style:normal;
+}
+.testimony cite{
+  display:block; margin-top:28px; font-family:'Space Mono', monospace; font-size:12.5px;
+  font-style:normal; color:#6b6b6b; letter-spacing:0.04em;
+}
+.testimony-note{
+  margin-top:18px; font-family:'Space Mono', monospace; font-size:11.5px; color:#9a9388;
+  border:1px dashed var(--line); padding:12px 16px; display:inline-block;
+}
+
+/* ============ credentials ============ */
+.credentials{ background:var(--paper); }
+.cred-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; }
+@media (max-width:760px){ .cred-grid{ grid-template-columns:1fr; } }
+.cred{
+  display:flex; justify-content:space-between; gap:16px;
+  padding:18px 22px; border:1px solid var(--line);
+  font-size:14px;
+}
+.cred .cred-name{ font-weight:600; }
+.cred .cred-org{ font-size:12.5px; color:#6b6b6b; margin-top:3px; }
+.cred .cred-date{ font-family:'Space Mono', monospace; font-size:11.5px; color:var(--poster-red); white-space:nowrap; }
+
+/* ============ contact ============ */
+.contact{
+  background:var(--ink); color:var(--paper);
+  text-align:left;
+}
+.contact .wrap{ display:flex; flex-direction:column; align-items:flex-start; }
+.contact .eyebrow{ color:var(--gold); margin-bottom:24px; }
+.contact h2{
+  font-size:clamp(46px, 9vw, 108px);
+  color:var(--paper);
+  margin-bottom:36px;
+}
+.contact h2 a{ border-bottom:4px solid var(--poster-red); transition:color .25s ease; }
+.contact h2 a:hover{ color:var(--poster-red); }
+.contact-meta{
+  display:flex; gap:48px; flex-wrap:wrap; margin-top:50px;
+  font-family:'Space Mono', monospace; font-size:13px;
+  border-top:1px solid rgba(247,245,241,0.2); padding-top:30px; width:100%;
+}
+.contact-meta div span{ display:block; color:var(--gold); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+
+footer{
+  background:var(--ink); color:rgba(247,245,241,0.5);
+  font-family:'Space Mono', monospace; font-size:11.5px;
+  padding:24px 0; text-align:center; letter-spacing:0.04em;
+  border-top:1px solid rgba(247,245,241,0.15);
+}
+
+/* reveal on scroll */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="mark">CONSTANCIO III<span>·</span>Stan<span>·</span>CORSIGA - <em>Graphics Designer</em></div>
+  <div class="nav-links">
+    <a href="#work">Selected Work</a>
+    <a href="#about">About</a>
+    <a href="#process">Process</a>
+    <a href="#credentials">Credentials</a>
+  </div>
+  <a class="nav-cta" href="#contact">Hire Me</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">Now booking — Q3 2026</div>
+        <h1 class="hero-title display">
+          CONSTANCIO III<br>
+          <span class="lastname">CORSIGA</span>
+        </h1>
+        <p class="hero-sub">Poster, campaign, and presentation design for brands that need their work to look like it already won the pitch.</p>
+
+        <dl class="billing">
+          <div><dt>Role</dt><dd>Graphics Designer — Print &amp; Digital Campaigns</dd></div>
+          <div><dt>Specialty</dt><dd>Photo Manipulation, Poster Ads, Corporate Decks, Social Campaigns</dd></div>
+          <div><dt>Tools</dt><dd>Photoshop, Illustrator, Canva, Premiere Pro, AI</dd></div>
+          <div><dt>Based In</dt><dd>Davao City, Philippines — works with clients worldwide</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-photo">
+        <div class="hero-photo-frame">
+          <!-- Replace this placeholder with your photo:
+               <img src="your-photo.jpg" alt="Constancio Corsiga III" style="width:100%;height:100%;object-fit:cover;"> -->
+          <div class="hero-photo-inner">
+            <div class="hero-photo-icon">
+              
+                <img src="I:\Personal Asset\Professional Photo\a2.png" alt="A short description of the image" width="800%" height="1100%">
+
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  <!-- <div class="hero-scroll"><span> </span><div class="bar"></div></div> -->
+</header>
+
+<section id="about" class="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">About</p>
+      <p class="about-lede reveal">Trained in <em>marketing psychology</em> before I ever opened Photoshop — which is why my designs are built to convert, not just to look good.</p>
+      <div class="about-body">
+        <p>I started in a BBA marketing classroom studying the psychology behind print ads and branding, long before I called myself a designer. That foundation never left. Years spent as an Executive Secretary and later a Quality Analyst — reviewing hundreds of calls and tickets a month, building reporting systems, coaching teams to hit KPIs — gave me something most designers skip: a deep, practical understanding of what businesses actually need to see results.</p>
+        <p>Today I bring that same rigor to design. Every poster, deck, and campaign I build starts with the same question I asked in QA: what outcome are we actually trying to move? The visuals come second — built in Photoshop, Illustrator, and Canva — but they're never decoration. They're built to do a job.</p>
+      </div>
+    </div>
+
+    <div>
+      <ul class="fact-list reveal">
+        <li><span class="num">01</span><span>10+ years evaluating performance data and building reporting systems across QA and HR functions.</span></li>
+        <li><span class="num">02</span><span>BBA in Marketing — the strategic backbone behind every visual decision I make.</span></li>
+        <li><span class="num">03</span><span>Hands-on certified training across Photoshop, Premiere Pro, Canva, and social media management.</span></li>
+        <li><span class="num">04</span><span>Background managing high-stakes, cross-border operations — I don't miss deadlines.</span></li>
+      </ul>
+
+      <div class="toolbelt">
+        <p class="eyebrow">Toolkit</p>
+        <div class="tool-tags">
+          <span>Adobe Photoshop</span>
+          <span>Adobe Illustrator</span>
+          <span>Adobe Premiere Pro</span>
+          <span>Canva</span>
+          <span>Microsoft PowerPoint</span>
+          <span>AI-Assisted Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected Work</h2>
+      <div class="count">04 Categories — Samples In Progress</div>
+    </div>
+
+    <!-- Category 1 -->
+    <div class="category reveal">
+      <div class="cat-head">
+        <h3>Photo Manipulation</h3>
+        <span class="cat-medium">Photoshop · AI-Assisted</span>
+      </div>
+      <p class="cat-blurb">Composite and retouch work where the brief is to make something impossible look photographed. This category will hold full before/after breakdowns once final files are in.</p>
+      <div class="piece-grid">
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 01</span>
+          <!--<div class="piece-frame">Final artwork<br>coming soon</div> -->
+
+            <div class="piece-frame">
+            <img src="I:\Portfolio - Graphics Designer\5. Photo Manipulation - Composite Artwork\Cinematic Poster - Ai.png" alt="A short description of the image"width="110%" height="100%">
+            </div>
+
+
+          <div>
+
+          <div class="piece-title">Cinematic Poster</div><div class="piece-tool">AI-Assisted</div></div>
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 02</span>
+          <div class="piece-frame">
+        
+            <img src="I:\Portfolio - Graphics Designer\5. Photo Manipulation - Composite Artwork\Digital Collage - Ai.png" alt="A short description of the image"width="110%" height="100%">
+          
+          </div>
+          <div><div class="piece-title">Digital Collage</div><div class="piece-tool">AI-Assisted</div></div>
+
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 03</span>
+          <div class="piece-frame">
+          
+            <img src="I:\Portfolio - Graphics Designer\5. Photo Manipulation - Composite Artwork\Double exposure sample - Photoshop.png" alt="A short description of the image"width="110%" height="100%">
+          
+          </div>
+
+
+
+          <div><div class="piece-title">Double Exposure</div><div class="piece-tool">Photoshop</div></div>
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 04</span>
+          <div class="piece-frame">
+            
+            <img src="I:\Portfolio - Graphics Designer\5. Photo Manipulation - Composite Artwork\Photo Retouch Sample Photo Shop.png" alt="A short description of the image"width="110%" height="100%">
+
+          </div>
+          <div><div class="piece-title">Photo Retouch</div><div class="piece-tool">Photoshop</div></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Category 2 -->
+    <div class="category reveal">
+      <div class="cat-head">
+        <h3>Corporate Presentation</h3>
+        <span class="cat-medium">Canva · Illustrator · PowerPoint</span>
+      </div>
+      <p class="cat-blurb">Infographics and decks built for rooms where attention spans are short and the data has to land in one glance — a direct line from years spent reporting AHT, adherence, and utilization to leadership.</p>
+      <div class="piece-grid">
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 01</span>
+
+          <div class="piece-frame">
+            
+            <img src="I:\Portfolio - Graphics Designer\4. Corporate Presentation or Slide Deck\Info Graphics - Work from Home Survival Guide - Canva.png" alt="A short description of the image"width="110%" height="100%">
+
+          </div>
+
+          <div><div class="piece-title">Infographic Series</div><div class="piece-tool">Canva</div></div>
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 02</span>
+
+          <div class="piece-frame">
+            
+            <img src="I:\Portfolio - Graphics Designer\4. Corporate Presentation or Slide Deck\Infographics - Login Instruction (AI-ChatGPT).png" alt="A short description of the image"width="110%" height="100%">
+
+          </div>
+
+          <div><div class="piece-title">Infographic Series</div><div class="piece-tool">Canva</div></div>
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 03</span>
+
+          <div class="piece-frame">
+            
+            <img src="I:\Portfolio - Graphics Designer\4. Corporate Presentation or Slide Deck\Brand Kit Creation.gif" alt="A short description of the image"width="114%" height="114%">
+
+          </div>
+
+          <div><div class="piece-title">PowerPoint Deck</div><div class="piece-tool">Canva | Ai</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 3 -->
+    <div class="category reveal">
+      <div class="cat-head">
+        <h3>Professional Poster Ads</h3>
+        <span class="cat-medium">Photoshop · Illustrator · Canva</span>
+      </div>
+      <p class="cat-blurb">The category I build the most of — movie posters, event keys, and product ads. Each one designed to hold up at billboard scale and thumbnail size at once.</p>
+      <div class="piece-grid">
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 01</span>
+          <div class="piece-frame">Final artwork<br>coming soon</div>
+          <div><div class="piece-title">Movie Poster</div><div class="piece-tool">Photoshop</div></div>
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 02</span>
+          <div class="piece-frame">Final artwork<br>coming soon</div>
+          <div><div class="piece-title">Movie Poster</div><div class="piece-tool">AI-Assisted</div></div>
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 03</span>
+          <div class="piece-frame">Final artwork<br>coming soon</div>
+          <div><div class="piece-title">Event Poster</div><div class="piece-tool">AI-Assisted</div></div>
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 04</span>
+          <div class="piece-frame">Final artwork<br>coming soon</div>
+          <div><div class="piece-title">Event Poster</div><div class="piece-tool">Photoshop</div></div>
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 05</span>
+          <div class="piece-frame">Final artwork<br>coming soon</div>
+          <div><div class="piece-title">Product Ad</div><div class="piece-tool">Canva</div></div>
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 06</span>
+          <div class="piece-frame">Final artwork<br>coming soon</div>
+          <div><div class="piece-title">Product Ad</div><div class="piece-tool">AI-Assisted</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 4 -->
+    <div class="category reveal">
+      <div class="cat-head">
+        <h3>Social Media Campaign</h3>
+        <span class="cat-medium">Canva</span>
+      </div>
+      <p class="cat-blurb">Scroll-stopping, on-brand assets built for the feed — carousels, seasonal promos, and travel content designed to keep engagement and approval timelines moving.</p>
+      <div class="piece-grid">
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 01</span>
+          <div class="piece-frame">Final artwork<br>coming soon</div>
+          <div><div class="piece-title">Carousel Post</div><div class="piece-tool">Canva</div></div>
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 02</span>
+          <div class="piece-frame">Final artwork<br>coming soon</div>
+          <div><div class="piece-title">Father's Day Poster</div><div class="piece-tool">Canva</div></div>
+        </div>
+        <div class="piece" tabindex="0">
+          <span class="piece-tag">Sample 03</span>
+          <div class="piece-frame">Final artwork<br>coming soon</div>
+          <div><div class="piece-title">Travel Promo Poster</div><div class="piece-tool">Canva</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="process">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How I Work</p>
+    </div>
+    <div class="section-head" style="border:none; margin-bottom:0; padding-bottom:0;">
+      <h2>From Brief To Final Art</h2>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:64px;">
+    <div class="steps">
+      <div class="step">
+        <div class="step-label">Brief</div>
+        <h4>Understand the goal</h4>
+        <p>Before opening any tool, I clarify what the piece needs to achieve — awareness, conversion, internal buy-in — the same way I used to scope a QA improvement project.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Concept</div>
+        <h4>Sketch directions</h4>
+        <p>Rough layout and mood options, explored fast, so the client is choosing a direction early instead of reacting to a finished piece.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Build</div>
+        <h4>Produce the final art</h4>
+        <p>Full production in Photoshop, Illustrator, or Canva — manipulation, retouching, and layout work refined through rounds of self-review.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Consultation</div>
+        <h4>Review every detail together</h4>
+        <p>We go through colors, typography, and layout side by side — checking for anything missing or off-brand. Nothing moves to final files until you've signed off.</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Deliver</div>
+        <h4>Ship it ready to use</h4>
+        <p>Once there are no further changes, final copy is delivered — export-ready and sized correctly for the actual placement, with no late surprises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--
+<section class="testimony">
+  <div class="wrap">
+    <p class="eyebrow" style="margin-bottom:32px;">What Colleagues Say</p>
+    <blockquote class="reveal">
+      Constancio's reporting and QA dashboards didn't just look clean — they changed how fast our leadership team could make decisions.
+      <cite>— Placeholder quote, pending client permission</cite>
+    </blockquote>
+    <div class="testimony-note">Real client testimonials will replace this placeholder once permissions are confirmed.</div>
+  </div>
+</section>
+
+-->
+
+
+<section id="credentials" class="credentials">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Credentials</h2>
+      <div class="count">8 Certifications</div>
+    </div>
+    <div class="cred-grid">
+      <div class="cred"><div><div class="cred-name">Adobe Premiere Pro for Beginners</div><div class="cred-org">Graphics Media Training Philippines</div></div><div class="cred-date">JUN 2026</div></div>
+      <div class="cred"><div><div class="cred-name">Basic Virtual Assistant Training</div><div class="cred-org">ClairVoyance</div></div><div class="cred-date">JUN 2026</div></div>
+      <div class="cred"><div><div class="cred-name">Bookkeeping Training (QuickBooks)</div><div class="cred-org">ClairVoyance</div></div><div class="cred-date">JUN 2026</div></div>
+      <div class="cred"><div><div class="cred-name">English Language Proficiency</div><div class="cred-org">ClairVoyance</div></div><div class="cred-date">JUN 2026</div></div>
+      <div class="cred"><div><div class="cred-name">Virtual Bookkeeping (Xero / QBO)</div><div class="cred-org">EzAcc Training Center</div></div><div class="cred-date">MAY 2026</div></div>
+      <div class="cred"><div><div class="cred-name">Social Media Management</div><div class="cred-org">Kurso.ph</div></div><div class="cred-date">JAN 2024</div></div>
+      <div class="cred"><div><div class="cred-name">Graphic Design with Canva</div><div class="cred-org">Kurso.ph</div></div><div class="cred-date">JAN 2024</div></div>
+      <div class="cred"><div><div class="cred-name">FB Ads AutoPilot Course</div><div class="cred-org">Kurso.ph</div></div><div class="cred-date">JAN 2024</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow">Let's Work Together</p>
+    <h2 class="display"><a href="mailto:stan.dev18f+02Gpx@gmail.com">Book A<br>Project</a></h2>
+    <div class="contact-meta">
+      <div><span>Email</span>stan.dev18f+02Gpx@gmail.com</div>
+      <div><span>Location</span>Davao City, Philippines</div>
+      <div><span>Availability</span>Open for freelance &amp; full-time</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  CONSTANCIO CORSIGA III — GRAPHICS DESIGNER — © 2026
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => io.observe(el));
+</script>
+
+
+<script>
+
+  // ============================================================
+  //  EMAIL LINK HANDLER
+  // ============================================================
+
+  const EMAIL_CONFIG = {
+    to: 'stan.dev18f+02Gpx@gmail.com',
+    subject: 'Interview for Executive Support Specialist',
+    body: 'Hi, Are you open for an interview on            at         .',
+  };
+
+  // ── Build mailto URL ─────────────────────────────────────────
+  function buildMailtoURL(config) {
+    const subject = encodeURIComponent(config.subject);
+    const body = encodeURIComponent(config.body);
+    return `mailto:${config.to}?subject=${subject}&body=${body}`;
+  }
+
+  // ── Attach to all email links ────────────────────────────────
+  function initEmailLinks() {
+    // Targets <a href="mailto:..."> links
+    const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
+
+    // Targets any element with class .email-link
+    const classLinks = document.querySelectorAll('.email-link');
+
+    const allLinks = [...new Set([...mailtoLinks, ...classLinks])];
+
+    if (allLinks.length === 0) {
+      console.warn('No email links found on this page.');
+      return;
+    }
+
+    allLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Use custom config or fall back to the link's own href
+        const mailtoURL = link.href.startsWith('mailto:')
+          ? link.href
+          : buildMailtoURL(EMAIL_CONFIG);
+
+        console.log('Opening email client:', mailtoURL);
+        window.location.href = mailtoURL;
+      });
+    });
+
+    console.log(`Email handler attached to ${allLinks.length} link(s).`);
+  }
+
+  // ── Run after DOM is ready ───────────────────────────────────
+  document.addEventListener('DOMContentLoaded', initEmailLinks);
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

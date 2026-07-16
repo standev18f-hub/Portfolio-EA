@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Constancio Corsiga III — Executive & Admin Support Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0B1F3A;
+    --navy-mid: #132A4E;
+    --navy-light: #1C3A65;
+    --gold: #C8A84B;
+    --gold-light: #E2C97E;
+    --gold-pale: #F5EDCF;
+    --cream: #FAF8F3;
+    --white: #FFFFFF;
+    --text-dark: #0B1F3A;
+    --text-mid: #334E6E;
+    --text-muted: #6B849E;
+    --border: #D8E2EE;
+    --section-gap: 80px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(11, 31, 58, 0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(200, 168, 75, 0.25);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #FFFFFF;  /*changed color for contrast */
+    /* color: var(--gold); */
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 168, 75, 0.08);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: 5%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 168, 75, 0.05);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  /* ── HERO PHOTO PLACEHOLDER ── */
+  .hero-photo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   /* width: 100%;
+    width: 100%; */
+    gap: 14px; 
+    flex-shrink: 0; 
+  }
+
+  .hero-photo-placeholder {
+    width: 320px;
+    height: 460px;
+    border-radius: 10px;
+    border: 2px dashed rgba(200, 168, 75, 0.5);
+    background: rgba(19, 42, 78, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-photo-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(200, 168, 75, 0.03) 8px,
+      rgba(200, 168, 75, 0.03) 16px
+    );
+  }
+
+  .hero-photo-icon {
+    font-size: 40px;
+    opacity: 0.5;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-photo-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(200, 168, 75, 0.6);
+    text-align: center;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+    padding: 0 16px;
+  }
+
+  .hero-photo-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    letter-spacing: 0.3px;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 5vw, 58px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero h1 span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 460px;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(200, 168, 75, 0.4);
+    color: var(--gold-light);
+    font-weight: 500;
+    font-size: 14px;
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats-col {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  /* Hero right — stat panel */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(200, 168, 75, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(200, 168, 75, 0.2);
+  }
+
+  .stat-cell {
+    background: rgba(19, 42, 78, 0.85);
+    padding: 32px 28px;
+    text-align: center;
+  }
+
+  .stat-cell:first-child { border-radius: 6px 0 0 0; }
+  .stat-cell:nth-child(2) { border-radius: 0 6px 0 0; }
+  .stat-cell:nth-child(3) { border-radius: 0 0 0 6px; }
+  .stat-cell:last-child { border-radius: 0 0 6px 0; }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* ── SECTION COMMON ── */
+  .section {
+    padding: var(--section-gap) 48px;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 60px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .section-intro {
+    font-size: 16px;
+    color: var(--text-mid);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 56px;
+  }
+
+  /* ── VALUE PROPOSITIONS ── */
+  .value-section {
+    background: var(--white);
+  }
+
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .value-card {
+    background: var(--white);
+    padding: 40px 36px;
+    position: relative;
+  }
+
+  .value-card::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 3px;
+    background: var(--gold);
+    margin-bottom: 28px;
+    border-radius: 2px;
+  }
+
+  .value-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .value-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .value-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ── SKILLS ── */
+  .skills-section {
+    background: var(--cream);
+  }
+
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .skill-group {
+    margin-bottom: 36px;
+  }
+
+  .skill-group-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy-mid);
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 3px;
+    letter-spacing: 0.2px;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--gold);
+    color: var(--text-dark);
+  }
+
+  .skill-tag.highlight {
+    background: var(--gold-pale);
+    border-color: rgba(200, 168, 75, 0.4);
+    color: #7A5C1E;
+  }
+
+  /* tools side */
+  .tools-panel {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 40px 36px;
+    position: sticky;
+    top: 88px;
+  }
+
+  .tools-panel-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .tools-panel-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 28px;
+  }
+
+  .tool-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .tool-item:last-child { border-bottom: none; }
+
+  .tool-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .tool-dot.secondary {
+    background: rgba(200,168,75,0.35);
+  }
+
+  .tool-name {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+
+  .tool-cat {
+    font-size: 11px;
+    color: rgba(255,255,255,0.38);
+    margin-left: auto;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* ── EXPERIENCE ── */
+  .experience-section {
+    background: var(--white);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--border) 80%, transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 56px;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-dot {
+    position: absolute;
+    left: -36px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+
+  .timeline-dot.secondary {
+    background: var(--border);
+    box-shadow: 0 0 0 2px var(--border);
+  }
+
+  .timeline-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+
+  .timeline-period {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  .timeline-company {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .timeline-role {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .timeline-location {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .timeline-location::before {
+    content: '◆';
+    font-size: 7px;
+    color: var(--gold);
+  }
+
+  .achievement-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .achievement-list li {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .achievement-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 12px;
+    top: 2px;
+  }
+
+  .achievement-list li strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ── METRICS ── */
+  .metrics-section {
+    background: var(--navy);
+    padding: var(--section-gap) 48px;
+  }
+
+  .metrics-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .metrics-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .metrics-header .section-eyebrow {
+    justify-content: center;
+  }
+
+  .metrics-header .section-eyebrow::after { display: none; }
+
+  .metrics-header .section-title {
+    color: var(--white);
+  }
+
+  .metrics-header .section-intro {
+    color: rgba(255,255,255,0.55);
+    margin: 0 auto;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: rgba(200, 168, 75, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(200, 168, 75, 0.15);
+  }
+
+  .metric-cell {
+    background: rgba(19, 42, 78, 0.9);
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .metric-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .metric-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+
+  /* ── TRUST SIGNALS ── */
+  .trust-section {
+    background: var(--cream);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .trust-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px 28px;
+  }
+
+  .trust-card-type {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .trust-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .trust-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .cert-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .cert-list li {
+    font-size: 13px;
+    color: var(--text-mid);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .cert-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .cert-year {
+    font-size: 11px;
+    color: var(--text-muted);
+    float: right;
+  }
+
+  /* ── AVAILABILITY BANNER ── */
+  .availability-section {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 48px;
+  }
+
+  .avail-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .avail-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .avail-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pulse {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #22C55E;
+    position: relative;
+  }
+
+  .pulse::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid #22C55E;
+    opacity: 0.4;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.4); opacity: 0; }
+  }
+
+  .avail-text strong {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    display: block;
+  }
+
+  .avail-text span {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .avail-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .avail-tag {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--text-mid);
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--navy);
+    padding: var(--section-gap) 48px;
+  }
+
+  .contact-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-left .section-title { color: var(--white); }
+  .contact-left .section-intro { color: rgba(255,255,255,0.55); }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .contact-detail:last-child { border-bottom: none; }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(200, 168, 75, 0.12);
+    border: 1px solid rgba(200, 168, 75, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .contact-info strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  .contact-info span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: rgba(7, 16, 30, 0.95);
+    padding: 24px 48px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  footer span { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-photo-placeholder { width: 160px; height: 190px; }
+    .hero-photo-wrap { order: -1; }
+    .hero-stats-col { justify-content: center; }
+    .section { padding: 60px 24px; }
+    .value-grid { grid-template-columns: 1fr; }
+    .skills-layout { grid-template-columns: 1fr; }
+    .tools-panel { position: static; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .trust-grid { grid-template-columns: 1fr; }
+    .avail-inner { flex-direction: column; align-items: flex-start; }
+    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    .contact-section { padding: 60px 24px; }
+    .metrics-section { padding: 60px 24px; }
+    .availability-section { padding: 32px 24px; }
+    footer { padding: 24px; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Print */
+  @media print {
+    nav, .availability-section { display: none; }
+    .hero { min-height: auto; padding: 40px 24px; }
+    .section { padding: 40px 24px; }
+    body { font-size: 13px; }
+  }
+
+
+
+  nav-logo span {color: #FFFFFF;
+    font-size: 16px;
+  }
+
+
+
+
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo"><span>Constancio Corsiga III - EA</span></div>
+  <ul class="nav-links">
+    <li><a href="#value">What I Do</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#contact">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+
+<div class="hero-stats-col">
+  <div class="hero-stats">
+    <div class="stat-cell">
+      <span class="stat-number">10+</span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-number">C-Suite</span>
+      <span class="stat-label">Executive Level</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-number">99%</span>
+      <span class="stat-label">Coordination Efficiency</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-number">5% from 30%</span>
+      <span class="stat-label">Adverse Audit Findings</span>
+    </div>
+  </div>
+</div>
+
+    <div class="hero-left">
+      <p class="hero-eyebrow">Executive & Admin Support Specialist</p>
+      <h1>
+        The EA who handles it
+        <span>before you ask.</span>
+      </h1>
+      <p class="hero-sub">
+        10+ years supporting C-suite executives and senior leadership across multinational organizations in Saudi Arabia and the Philippines. Complex calendars managed. Sensitive communications handled. Operations kept running without interruption.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#contact" class="btn-primary">Hire Me Now ↗</a>
+        <a href="#experience" class="btn-outline">View Experience</a>
+      </div>
+    </div>
+
+
+    <div class="hero-right">
+      <!-- ═══════════════════════════════════════════
+           PHOTO PLACEHOLDER
+           Replace this entire .hero-photo-wrap div
+           with your actual <img> tag when ready.
+           Recommended size: 220×260px, portrait crop.
+      ═══════════════════════════════════════════ -->
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-placeholder">
+
+                      <img
+                        src="img\a2.png"
+                        alt="A short description of the image" width="130%" height="110%">
+
+
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AVAILABILITY BANNER -->
+<div class="availability-section">
+  <div class="avail-inner">
+    <div class="avail-left">
+      <div class="avail-indicator">
+        <div class="pulse"></div>
+      </div>
+      <div class="avail-text">
+        <strong>Available for Immediate Hire</strong>
+        <span>Open to part-time, full-time, and contract remote engagements</span>
+      </div>
+    </div>
+    <div class="avail-tags">
+      <span class="avail-tag">Remote-Ready</span>
+      <span class="avail-tag">Part-Time</span>
+      <span class="avail-tag">Full-Time</span>
+      <span class="avail-tag">Contract</span>
+      <span class="avail-tag">GMT+8</span>
+    </div>
+  </div>
+</div>
+
+<!-- VALUE PROPOSITIONS -->
+<section class="section value-section" id="value">
+  <div class="section-inner">
+    <p class="section-eyebrow">What You Get</p>
+    <h2 class="section-title">Not just organized — operationally sharp.</h2>
+    <p class="section-intro">
+      Most EAs keep things tidy. I keep things running. Here's the difference you'll notice from week one.
+    </p>
+
+    <div class="value-grid">
+      <div class="value-card">
+        <span class="value-icon">🗓</span>
+        <h3>Calendar & Inbox You Can Trust</h3>
+        <p>Complex, multi-timezone scheduling across executive teams — with zero double-bookings, no missed priorities, and communications managed with complete discretion. You focus on the meeting; I handle everything before and after.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">✈️</span>
+        <h3>Travel & Logistics, End-to-End</h3>
+        <p>From itinerary planning to visa processing, I've coordinated travel for CEOs and Board Directors across international corridors. Arrangements that save money without sacrificing efficiency — proven track record with executives at multinational firms.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">📁</span>
+        <h3>Documentation That Stays Audit-Ready</h3>
+        <p>Whether it's employment contracts, compliance records, or executive correspondence — documentation I manage is accurate, organized, and audit-proof. I achieved 100% documentation compliance across ISO audits with zero findings requiring corrective action.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🤝</span>
+        <h3>Vendor & Stakeholder Coordination</h3>
+        <p>Experienced negotiating with staffing agencies, vendors, and subcontractors on behalf of leadership. I protect the organization's interests and keep agreements compliant, current, and clearly documented.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🔒</span>
+        <h3>Trusted With the Sensitive</h3>
+        <p>Confidential data, personnel matters, executive communications — I've handled all of it across multinational environments where discretion wasn't optional. You'll never need to second-guess what's in safe hands.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">⚙️</span>
+        <h3>SOP & Process Ownership</h3>
+        <p>I don't just follow processes — I build and improve them. From QA-led systems to attendance tracking frameworks, I've redesigned workflows that gave leadership real-time visibility and cut ambiguity across teams.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section skills-section" id="skills">
+  <div class="section-inner">
+    <p class="section-eyebrow">Capabilities</p>
+    <h2 class="section-title">Every skill an executive needs in their corner.</h2>
+    <p class="section-intro">
+      A decade of real work builds a different kind of skill set than a certification list. Here's what I actually do.
+    </p>
+
+    <div class="skills-layout">
+      <div>
+        <div class="skill-group">
+          <p class="skill-group-label">Executive & Admin Core</p>
+          <div class="skill-tags">
+            <span class="skill-tag highlight">Calendar Management</span>
+            <span class="skill-tag highlight">Email Management</span>
+            <span class="skill-tag highlight">Travel Coordination</span>
+            <span class="skill-tag highlight">Meeting Scheduling</span>
+            <span class="skill-tag">Document Preparation</span>
+            <span class="skill-tag">Confidential Data Handling</span>
+            <span class="skill-tag">Visa Processing</span>
+            <span class="skill-tag">Executive Correspondence</span>
+            <span class="skill-tag">Board Director Support</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-label">Operations & Process</p>
+          <div class="skill-tags">
+            <span class="skill-tag">SOP Creation</span>
+            <span class="skill-tag">Process Improvement</span>
+            <span class="skill-tag">Vendor Coordination</span>
+            <span class="skill-tag">File Management</span>
+            <span class="skill-tag">Data Entry & Reporting</span>
+            <span class="skill-tag">Project & Task Management</span>
+            <span class="skill-tag">Stakeholder Communication</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-label">HR & Contract Administration</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Contract Preparation</span>
+            <span class="skill-tag">Candidate Screening</span>
+            <span class="skill-tag">Full-Cycle Recruitment</span>
+            <span class="skill-tag">Compliance Management</span>
+            <span class="skill-tag">Employee Relations</span>
+            <span class="skill-tag">Agency Negotiation</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-label">Reporting & Analysis</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Operational Reporting</span>
+            <span class="skill-tag">KPI Tracking</span>
+            <span class="skill-tag">Performance Analysis</span>
+            <span class="skill-tag">Workforce Visibility Systems</span>
+            <span class="skill-tag">Compliance Reporting</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="tools-panel">
+          <p class="tools-panel-title">Tools & Platforms</p>
+          <p class="tools-panel-sub">What I work in every day</p>
+
+          <div class="tool-item">
+            <div class="tool-dot"></div>
+            <span class="tool-name">Google Workspace</span>
+            <span class="tool-cat">Productivity</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-dot"></div>
+            <span class="tool-name">Microsoft Office Suite</span>
+            <span class="tool-cat">Productivity</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-dot"></div>
+            <span class="tool-name">Slack / Zoom</span>
+            <span class="tool-cat">Comms</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-dot"></div>
+            <span class="tool-name">Calendly</span>
+            <span class="tool-cat">Scheduling</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-dot secondary"></div>
+            <span class="tool-name">Trello / Asana</span>
+            <span class="tool-cat">Projects</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-dot secondary"></div>
+            <span class="tool-name">ClickUp / Monday.com</span>
+            <span class="tool-cat">Projects</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-dot secondary"></div>
+            <span class="tool-name">Notion</span>
+            <span class="tool-cat">Docs</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-dot secondary"></div>
+            <span class="tool-name">QuickBooks / Xero</span>
+            <span class="tool-cat">Finance</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-dot secondary"></div>
+            <span class="tool-name">Canva / Photoshop</span>
+            <span class="tool-cat">Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS METRICS -->
+<section class="metrics-section" id="results">
+  <div class="metrics-inner">
+    <div class="metrics-header">
+      <p class="section-eyebrow">Proven Results</p>
+      <h2 class="section-title">Numbers that tell the story.</h2>
+      <p class="section-intro">These aren't estimates. They come directly from documented performance across real executive and operational roles.</p>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-cell">
+        <span class="metric-number">99%</span>
+        <span class="metric-label">Coordination efficiency rate achieved in multinational HR operations</span>
+      </div>
+      <div class="metric-cell">
+        <span class="metric-number">100%</span>
+        <span class="metric-label">Documentation compliance across ISO and internal audits — zero corrective actions</span>
+      </div>
+      <div class="metric-cell">
+        <span class="metric-number">90%</span>
+        <span class="metric-label">Employee grievances resolved internally, avoiding escalation</span>
+      </div>
+      <div class="metric-cell">
+        <span class="metric-number">10%+</span>
+        <span class="metric-label">Recruitment cost savings through direct sourcing instead of agency fees</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section experience-section" id="experience">
+  <div class="section-inner">
+    <p class="section-eyebrow">Career History</p>
+    <h2 class="section-title">A track record across three countries and two decades.</h2>
+    <p class="section-intro">
+      Executive support in high-pressure, multinational environments. The kind of experience you don't get from courses.
+    </p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">Sep 2016 – Present</span>
+          <span class="timeline-company">RMH Teleservice Asia-Pacific Inc. (Alorica)</span>
+        </div>
+        <h3 class="timeline-role">IT Service Desk Quality Analyst</h3>
+        <p class="timeline-location">Davao City, Philippines</p>
+        <ul class="achievement-list">
+          <li>Evaluated <strong>100+ calls, chats, and tickets monthly</strong> to assess performance — coaching that directly improved KPI outcomes across the team.</li>
+          <li>Designed and implemented a <strong>QA-led attendance tracking system</strong> giving leadership real-time workforce visibility — a system built from scratch, still in use.</li>
+          <li>Covered <strong>interim Lead on Duty responsibilities</strong>, running QA talks, maintaining floor operations, and fielding analyst escalations without disruption.</li>
+          <li>Collaborated with leadership to <strong>rebuild process documentation</strong>, eliminating ambiguity and improving consistency across the entire QA team.</li>
+          <li>Produced <strong>daily and weekly operational reports</strong> on AHT, adherence, and utilization to drive data-informed management decisions.</li>
+          <li>Mentored and onboarded new hires across multiple roles, <strong>shortening ramp-up time</strong> and easing training transitions for incoming staff.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">Apr 2011 – Dec 2015</span>
+          <span class="timeline-company">Bilfal Heavy Industries Ltd.</span>
+        </div>
+        <h3 class="timeline-role">HR Supervisor</h3>
+        <p class="timeline-location">Saudi Arabia</p>
+        <ul class="achievement-list">
+          <li>Managed day-to-day HR operations across security, transport, accommodation, and subcontractor functions — keeping a <strong>complex, multi-department organization</strong> running without disruption.</li>
+          <li>Built and executed <strong>international recruitment strategies</strong> that hit 99% coordination efficiency and filled critical roles on schedule.</li>
+          <li>Owned the <strong>full hiring cycle</strong> — JDs, screening, interviews, pre-employment assessments — across multiple concurrent roles simultaneously.</li>
+          <li>Processed <strong>employment contracts and visa documentation end-to-end</strong>, ensuring zero deployment delays for incoming international personnel.</li>
+          <li>Negotiated and maintained contracts with agencies, vendors, and subcontractors — <strong>saved 10%+ on recruitment fees</strong> through direct sourcing.</li>
+          <li>Achieved <strong>100% documentation compliance across ISO and internal audits</strong>, with zero findings requiring corrective action.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot secondary"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">Apr 2008 – Oct 2009</span>
+          <span class="timeline-company">Hassan Misfer Al Zahrani & Partners Co.</span>
+        </div>
+        <h3 class="timeline-role">Executive Secretary</h3>
+        <p class="timeline-location">Saudi Arabia</p>
+        <ul class="achievement-list">
+          <li>Managed <strong>executive calendars, travel itineraries, and communications</strong> for the CEO and senior leadership — including urgent cross-border coordination.</li>
+          <li>Coordinated <strong>end-to-end recruitment for non-Arabic roles</strong>: sourcing, screenings, interviews across multiple departments.</li>
+          <li>Processed visa applications and maintained complete documentation — achieving a <strong>99% successful deployment rate</strong> for executives and incoming employees.</li>
+          <li>Reduced travel costs by <strong>directly booking arrangements for CEO and Board Directors</strong>, including visa applications and itinerary management.</li>
+          <li>Negotiated directly with candidates and staffing agencies on terms and timelines — keeping <strong>hiring pipelines moving</strong> without bottlenecks.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST SIGNALS -->
+<section class="section trust-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Credentials</p>
+    <h2 class="section-title">Education, certifications, and background.</h2>
+    <p class="section-intro">
+      The experience comes first. But here's the formal foundation behind it.
+    </p>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <p class="trust-card-type">Education</p>
+        <h3>Bachelor of Business Administration</h3>
+        <p>Major in Management · Minor in Marketing<br><strong>Polytechnic University of the Philippines, Manila</strong></p>
+      </div>
+
+      <div class="trust-card">
+        <p class="trust-card-type">Certifications — 2026</p>
+        <h3>Recent Professional Training</h3>
+        <ul class="cert-list">
+          <li><span class="cert-year">Jun 2026</span>Adobe Premiere Pro for Beginners</li>
+          <li><span class="cert-year">Jun 2026</span>Basic Virtual Assistant Training</li>
+          <li><span class="cert-year">Jun 2026</span>Bookkeeping Training using QuickBooks</li>
+          <li><span class="cert-year">Jun 2026</span>English Language Proficiency</li>
+          <li><span class="cert-year">May 2026</span>Virtual Bookkeeping with Xero and QBO</li>
+        </ul>
+      </div>
+
+      <div class="trust-card">
+        <p class="trust-card-type">Certifications — Earlier</p>
+        <h3>Additional Credentials</h3>
+        <ul class="cert-list">
+          <li><span class="cert-year">Jan 2024</span>Social Media Management — Kurso.ph</li>
+          <li><span class="cert-year">Jan 2024</span>Graphic Design with Canva — Kurso.ph</li>
+          <li><span class="cert-year">Jan 2024</span>FB Ads AutoPilot Course — Kurso.ph</li>
+        </ul>
+        <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);">
+          <p style="font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">Languages</p>
+          <p style="font-size: 13px; color: var(--text-mid);">English · Filipino · working knowledge of Arabic professional environments</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <p class="section-eyebrow">Let's Talk</p>
+      <h2 class="section-title">Ready to bring real executive support to your team.</h2>
+      <p class="section-intro">
+        Whether you need a reliable EA, a virtual admin who can own the back office, or operational support that doesn't require hand-holding — reach out. Response within 24 hours.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 16px;">
+        <div class="contact-detail">
+          <div class="contact-icon">📧</div>
+          <div class="contact-info">
+            <strong>stan.dev18f@gmail.com</strong>
+            <span>Primary email — preferred for initial contact</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+              style="width: 1em; height: 1em; fill: #FFFFFF; vertical-align: middle;">
+              <path
+                d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 1 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+            </svg>
+          </div>
+          <div class="contact-info">
+            <strong>www.linkedin.com/in/stan-corsiga-a0098a411</strong>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">📱</div>
+          <div class="contact-info">
+            <strong>+63 962 849 2492</strong>
+          </div>
+        </div>
+
+
+        <div class="contact-detail">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <strong>Davao City, Philippines</strong>
+            <span>GMT+8 — available to overlap with US, EU, and Gulf hours</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <div style="background: rgba(19,42,78,0.7); border: 1px solid rgba(200,168,75,0.2); border-radius: 10px; padding: 40px 36px;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); margin-bottom: 20px; line-height: 1.4;">
+          "The person who gets things done quietly and correctly."
+        </p>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 32px;">
+          That's not marketing copy — it's how I operate. Your calendar will be protected. Your inbox won't spiral. Your documentation will be clean. Your travel will be booked. Your vendors will be managed. And you won't have to ask twice.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 16px;">✅</span>
+            <span style="font-size: 14px; color: rgba(255,255,255,0.7);">Immediate availability — no notice period</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 16px;">✅</span>
+            <span style="font-size: 14px; color: rgba(255,255,255,0.7);">Fully equipped for remote work</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 16px;">✅</span>
+            <span style="font-size: 14px; color: rgba(255,255,255,0.7);">Experienced across industries and cultures</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 16px;">✅</span>
+            <span style="font-size: 14px; color: rgba(255,255,255,0.7);">C-suite references available on request</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 36px;">
+          <a href="mailto:constaciocorsigaiii@gmail.com" class="btn-primary" style="display: inline-flex; width: 100%; justify-content: center; font-size: 15px; padding: 16px 32px;">
+            Send Me an Email →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><span>Constancio I. Corsiga III &nbsp;·&nbsp; Executive & Admin Support Specialist</span> &nbsp;·&nbsp; Davao City, Philippines &nbsp;·&nbsp; <span>Stan Creatives</span></p>
+</footer>
+
+</body>
+</html>
